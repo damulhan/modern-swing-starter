@@ -115,3 +115,9 @@ $env:JAVA_HOME = "C:\Users\damul\.jdks\jbr-21.0.11"
   --java-options "-Xmx512m -Dfile.encoding=UTF-8"
 ```
 * 실행 결과물: `dist\ModernSwingApp\ModernSwingApp.exe`
+
+---
+
+## 📄 라이선스 (License)
+
+이 프로젝트는 [MIT License](LICENSE)에 따라 자유롭게 사용, 수정, 배포할 수 있습니다.
