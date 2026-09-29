@@ -1,0 +1,39 @@
+plugins {
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'com.example'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Look and Feel: FlatLaf
+    implementation 'com.formdev:flatlaf:3.5.4'
+
+    // Form Layout
+    implementation 'com.jgoodies:jgoodies-forms:1.9.0'
+
+    // Data Binding
+    implementation 'com.jgoodies:jgoodies-binding:2.13.0'
+}
+
+application {
+    mainClass = 'com.example.swingapp.Application'
+}
+
+tasks.named('shadowJar') {
+    archiveBaseName.set('modern-swing-starter')
+    archiveClassifier.set('')
+    archiveVersion.set('1.0.0')
+    mergeServiceFiles()
+}
