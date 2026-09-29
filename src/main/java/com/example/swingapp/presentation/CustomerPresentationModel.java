@@ -58,6 +58,14 @@ public class CustomerPresentationModel {
         setCustomer(new Customer(null, "", "", "", true));
     }
 
+    public String validateCurrent() {
+        String name = (String) nameModel.getValue();
+        if (name == null || name.trim().isEmpty()) {
+            return "고객 이름을 입력해 주세요.";
+        }
+        return null;
+    }
+
     public Customer saveCurrent() {
         Customer saved = customerService.save(this.currentCustomer);
         setCustomer(saved);

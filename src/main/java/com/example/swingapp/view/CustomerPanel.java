@@ -2,6 +2,7 @@ package com.example.swingapp.view;
 
 import com.example.swingapp.model.Customer;
 import com.example.swingapp.presentation.CustomerPresentationModel;
+import com.example.swingapp.presentation.binding.ComponentBinders;
 import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
@@ -128,11 +129,11 @@ public class CustomerPanel extends JPanel {
         JPanel formPanel = new JPanel(layout);
         CellConstraints cc = new CellConstraints();
 
-        // JGoodies Binding: BasicComponentFactory creates bound Swing components
-        txtName = BasicComponentFactory.createTextField(presentationModel.getNameModel());
-        txtEmail = BasicComponentFactory.createTextField(presentationModel.getEmailModel());
-        txtPhone = BasicComponentFactory.createTextField(presentationModel.getPhoneModel());
-        chkActive = BasicComponentFactory.createCheckBox(presentationModel.getActiveModel(), "활성 고객 (Active)");
+        // JGoodies Binding via ComponentBinders helper
+        txtName = ComponentBinders.bindTextField(presentationModel.getNameModel(), "고객 이름 입력");
+        txtEmail = ComponentBinders.bindTextField(presentationModel.getEmailModel(), "example@domain.com");
+        txtPhone = ComponentBinders.bindTextField(presentationModel.getPhoneModel(), "010-0000-0000");
+        chkActive = ComponentBinders.bindCheckBox(presentationModel.getActiveModel(), "활성 고객 (Active)");
 
         formPanel.add(new JLabel("이름 (Name):"), cc.xy(1, 1));
         formPanel.add(txtName, cc.xy(3, 1));
@@ -187,9 +188,9 @@ public class CustomerPanel extends JPanel {
     }
 
     private void onSave() {
-        String name = (String) presentationModel.getNameModel().getValue();
-        if (name == null || name.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "고객 이름을 입력해 주세요.", "입력 확인", JOptionPane.WARNING_MESSAGE);
+        String validationError = presentationModel.validateCurrent();
+        if (validationError != null) {
+            JOptionPane.showMessageDialog(this, validationError, "입력 확인", JOptionPane.WARNING_MESSAGE);
             txtName.requestFocusInWindow();
             return;
         }
