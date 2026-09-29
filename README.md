@@ -2,6 +2,11 @@
 > **Java Swing + JGoodies (Forms & Binding) + FlatLaf**  
 > 모던 감각의 룩앤필과 견고한 Presentation Model 패턴으로 완성한 Java 순수 데스크톱 보일러플레이트/스타터 키트
 
+<p align="center">
+  <img src="docs/images/screenshot-light.jpg" alt="Light Theme" width="49%">
+  <img src="docs/images/screenshot-dark.jpg" alt="Dark Theme" width="49%">
+</p>
+
 ---
 
 ## 💡 프로젝트의 의미와 의의
