@@ -2,6 +2,8 @@
 > **Java Swing + JGoodies (Forms & Binding) + FlatLaf**  
 > 모던 감각의 룩앤필과 견고한 Presentation Model 패턴으로 완성한 Java 순수 데스크톱 보일러플레이트/스타터 키트
 
+> 💡 **Kotlin 버전**: **Java Swing + FlatLaf + Kotlin Flow/Coroutines** 기반의 현대적인 데스크톱 GUI 아키텍처 스타터 템플릿은 [modern-swing-starter-kt](https://github.com/damulhan/modern-swing-starter-kt)에서 확인하실 수 있습니다.
+
 <p align="center">
   <img src="docs/images/screenshot-light.jpg" alt="Light Theme" width="49%">
   <img src="docs/images/screenshot-dark.jpg" alt="Dark Theme" width="49%">
